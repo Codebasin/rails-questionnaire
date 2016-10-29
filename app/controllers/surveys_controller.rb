@@ -2,7 +2,7 @@ class SurveysController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @surveys = @user.surveys.all
+    @surveys = Survey.all
   end
 
   def show
@@ -45,7 +45,7 @@ class SurveysController < ApplicationController
   private
 
   def survey_params
-    params.require(:survey).permit(:title)
+    params.require(:survey).permit(:title, :user_id)
   end
 
 end
