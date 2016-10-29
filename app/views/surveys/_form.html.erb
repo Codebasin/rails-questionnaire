@@ -1,6 +1,10 @@
-<%= form_for @survey do |f| %>
-  <%= f.label :title %>:
-  <%= f.text_field :title %><br />
 
-  <%= f.submit %>
+<%= form_for @survey do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>:
+    <%= f.text_field :title, autofocus: true, class: 'form-control' %><br />
+  </div>
+
+  <%= f.submit class: "btn btn-primary btn-block" %>
 <% end %>
+<p><%= link_to "Cancel", surveys_path, class: "btn btn-secondary btn-md btn-block" %></p>
