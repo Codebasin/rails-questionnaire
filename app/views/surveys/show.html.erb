@@ -2,7 +2,14 @@
   <header>
     <h4><%= @survey.title %></h4>
   </header>
-  <%= link_to "Add question", new_survey_question_path(@survey, @question), class: "btn btn-success btn-block" %>
-  <% @survey.questions.any? %>
-    <%= render "questions/question" %>
-<div>
+  <%# link_to "Add question", new_survey_question_path(@survey, @question), class: "btn btn-success btn-block" %>
+
+  <% if @survey.questions.any? %>
+    <%= form_tag answers_path, method: :post do %>
+      <%= hidden_field_tag 'survey_id', @survey.id %>
+      <%= render @survey.questions %>
+
+      <%= submit_tag 'Send' %>
+    <% end %>
+  <% end %>
+</div>

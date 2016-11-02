@@ -1,8 +1,19 @@
-
 <%= form_for @survey do |f| %>
+  <%= @survey.errors.inspect %>
   <div class="form-group">
     <%= f.label :title %>:
     <%= f.text_field :title, autofocus: true, class: 'form-control' %><br />
+  </div>
+
+  <h3>Questions</h3>
+
+  <div id="questions">
+    <%= f.fields_for :questions do |question| %>
+      <% render 'question_fields', f: question %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'add question', f, :questions %>
+    </div>
   </div>
 
   <%= f.submit class: "btn btn-primary btn-block" %>

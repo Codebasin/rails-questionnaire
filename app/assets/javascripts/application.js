@@ -13,6 +13,7 @@
 
 //= require jquery
 //= require jquery_ujs
+//= require cocoon
 //= require tether
 //= require bootstrap
 //= require_tree .
