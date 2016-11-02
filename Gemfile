@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'sass-rails'
+gem 'rails_admin'
 gem 'bootstrap', '4.0.0.alpha4'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
