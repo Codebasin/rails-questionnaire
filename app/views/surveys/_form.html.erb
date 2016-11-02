@@ -1,5 +1,10 @@
 <%= form_for @survey do |f| %>
-  <%= @survey.errors.inspect %>
+  <% if @survey.errors.any? %>
+    <% @survey.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  <% end %>
+
   <div class="form-group">
     <%= f.label :title %>:
     <%= f.text_field :title, autofocus: true, class: 'form-control' %><br />

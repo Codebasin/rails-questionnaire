@@ -1,16 +1,15 @@
 <div class="item">
   <div class="well">
     <div class="card card-block">
-      <h4 class="card-title"><%= question.title %></h4>
+      <h6 class="card-title"><%= question.title %></h6>
 
       <div>
-        <strong>Answers (debug)</strong>
+        <small>Answer</small>
         <% question.answers.each do |answer| %>
-          <%= answer.body %> by <%= answer.user.email %><br>
         <% end %>
       </div>
 
-      <%= text_area_tag "answers[#{question.id}]" %>
+      <%= text_field_tag "answers[#{question.id}]" %>
     </div>
   </div>
 </div>
