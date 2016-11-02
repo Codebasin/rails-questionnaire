@@ -10,11 +10,9 @@ class SurveysController < ApplicationController
   end
 
   def edit
-    @survey = Survey.find(params[:id])
   end
 
   def update
-    @user = current_user
     @survey = @user.surveys.find(params[:id])
     if @survey.update(survey_params)
       redirect_to @survey, notice: "Edit successful"
@@ -25,11 +23,11 @@ class SurveysController < ApplicationController
 
   def new
     @survey = Survey.new
+    @survey.questions.build
   end
 
   def create
-    @user = current_user
-    @survey = @user.surveys.new(survey_params)
+    @survey = Survey.new(survey_params)
     if @survey.save
       redirect_to @survey, notice: "Successfully created"
     else

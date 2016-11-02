@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :surveys do
-    resources :questions
+    resources :questions do
+      resources :answers
+    end
   end
 
 end
