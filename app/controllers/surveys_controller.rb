@@ -27,7 +27,7 @@ class SurveysController < ApplicationController
   end
 
   def create
-    @survey = Survey.new(survey_params)
+    @survey = current_user.surveys.build(survey_params)
     if @survey.save
       redirect_to @survey, notice: "Successfully created"
     else
@@ -43,7 +43,6 @@ class SurveysController < ApplicationController
   private
 
   def survey_params
-    params.require(:survey).permit(:title, :user_id)
+    params.require(:survey).permit(:title, questions_attributes: [:id, :title])
   end
-
 end

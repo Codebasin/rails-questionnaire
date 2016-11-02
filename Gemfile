@@ -8,7 +8,7 @@ gem 'jquery-rails'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'sass-rails'
-gem 'bootstrap', '~> 4.0.0.alpha4'
+gem 'bootstrap', '4.0.0.alpha4'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
@@ -16,13 +16,18 @@ end
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'pry-rails'
 end
+
+gem 'cocoon'
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'lol_dba'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
