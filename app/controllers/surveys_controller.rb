@@ -37,7 +37,7 @@ class SurveysController < ApplicationController
 
   def destroy
     @survey = Survey.find(params[:id]).destroy
-    redirect_to surveys_path, danger: "successfully deleted"
+    redirect_to surveys_path, notice: "successfully deleted"
   end
 
   private
