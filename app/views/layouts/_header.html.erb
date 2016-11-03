@@ -9,7 +9,7 @@
 </nav>
 <br>
 
-<% if current_user.admin=true %>
+<% if current_user && current_user.admin == true %>
   <div class="container">
     <div class="item">
         <%= link_to "new survey", new_survey_path, :class => "btn btn-secondary btn-md btn-block" %>

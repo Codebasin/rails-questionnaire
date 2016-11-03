@@ -1,26 +1,28 @@
-<%= form_for @survey do |f| %>
-  <% if @survey.errors.any? %>
-    <% @survey.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+<div class="border-show-div">
+  <%= form_for @survey do |f| %>
+    <% if @survey.errors.any? %>
+      <% @survey.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
     <% end %>
-  <% end %>
 
-  <div class="form-group">
-    <%= f.label :title %>:
-    <%= f.text_field :title, autofocus: true, placeholder: "enter survey title", class: 'form-control' %><br />
-  </div>
-
-  <h5 class="add-question">Add Questions</h5>
-
-  <div id="questions">
-    <%= f.fields_for :questions do |question| %>
-      <% render 'question_fields', f: question %>
-    <% end %>
-    <div class="links">
-      <button type="button" class="btn btn-info btn-md"><%= link_to_add_association 'add question', f, :questions %></button>
+    <div class="form-group">
+      <h5 class="add-question">Add title</h5>
+      <%= f.text_field :title, autofocus: true, class: 'form-control' %><br />
     </div>
-  </div>
 
-  <%= f.submit class: "btn btn-info btn-block" %>
-<% end %>
-<p><%= link_to "Cancel", surveys_path, class: "btn btn-secondary btn-md btn-block" %></p>
+    <h5 class="add-question">Add Questions</h5>
+
+    <div id="questions">
+      <%= f.fields_for :questions do |question| %>
+        <% render 'question_fields', f: question %>
+      <% end %>
+      <div class="links">
+        <button type="button" class="btn btn-info btn-md"><%= link_to_add_association 'add question', f, :questions %></button>
+      </div>
+    </div>
+
+    <%= f.submit class: "btn btn-info btn-block" %>
+  <% end %>
+  <p><%= link_to "Cancel", surveys_path, class: "btn btn-secondary btn-md btn-block" %></p>
+</div>
