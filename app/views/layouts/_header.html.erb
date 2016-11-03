@@ -9,11 +9,9 @@
 </nav>
 <br>
 
-<% if current_user && current_user.admin == true %>
   <div class="container">
     <div class="item">
         <%= link_to "new survey", new_survey_path, :class => "btn btn-secondary btn-md btn-block" %>
         <%= link_to "admin", rails_admin.dashboard_path, :class => "btn btn-secondary btn-md btn-block" %>
     </div>
   </div>
-<% end %>
