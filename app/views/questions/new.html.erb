@@ -1,6 +1,6 @@
 <%= form_for([@survey, @question]) do |f| %>
   <%= f.label :title %>:
-  <%= f.text_field :title %><br />
+  <%= f.text_field :title, class: 'form-control' %><br />
 
   <%= f.submit %>
 <% end %>

@@ -1,16 +1,19 @@
-<nav class="navbar navbar-dark bg-success">
+<nav class="navbar navbar-dark bg-info">
   <header class="navbar-brand pull-sm-left m-r-0"><i class="fa fa-gg" aria-hidden="true"></i>
     <%= link_to "Questionnaire", surveys_path %></header>
     <% if current_user %>
       <header class="navbar-brand pull-sm-right m-r-0">
         <%= link_to "Signout ", destroy_user_session_path, method: :delete %> <i class="fa fa-sign-out" aria-hidden="true"></i>
       </header>
-      <% end %>
-    </nav>
-    <br>
+    <% end %>
+</nav>
+<br>
 
-    <div class="container">
-      <div class="item">
-        <p id="new-survey"><%= link_to "New Survey", new_survey_path, class: "btn btn-success btn-md btn-block" %></p>
-      </div>
+<% if current_user.admin=true %>
+  <div class="container">
+    <div class="item">
+        <%= link_to "new survey", new_survey_path, :class => "btn btn-secondary btn-md btn-block" %>
+        <%= link_to "admin", rails_admin.dashboard_path, :class => "btn btn-secondary btn-md btn-block" %>
     </div>
+  </div>
+<% end %>

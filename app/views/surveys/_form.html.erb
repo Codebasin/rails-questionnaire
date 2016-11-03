@@ -7,20 +7,20 @@
 
   <div class="form-group">
     <%= f.label :title %>:
-    <%= f.text_field :title, autofocus: true, class: 'form-control' %><br />
+    <%= f.text_field :title, autofocus: true, placeholder: "enter survey title", class: 'form-control' %><br />
   </div>
 
-  <h3>Questions</h3>
+  <h5 class="add-question">Add Questions</h5>
 
   <div id="questions">
     <%= f.fields_for :questions do |question| %>
       <% render 'question_fields', f: question %>
     <% end %>
     <div class="links">
-      <%= link_to_add_association 'add question', f, :questions %>
+      <button type="button" class="btn btn-info btn-md"><%= link_to_add_association 'add question', f, :questions %></button>
     </div>
   </div>
 
-  <%= f.submit class: "btn btn-primary btn-block" %>
+  <%= f.submit class: "btn btn-info btn-block" %>
 <% end %>
 <p><%= link_to "Cancel", surveys_path, class: "btn btn-secondary btn-md btn-block" %></p>

@@ -1,13 +1,13 @@
 <div class="border-show-div">
   <header>
-    <h3><%= @survey.title %></h3>
+    <h3 class="survey-title"><%= @survey.title %></h3>
   </header>
   <% if @survey.questions.any? %>
     <%= form_tag answers_path, method: :post do %>
       <%= hidden_field_tag 'survey_id', @survey.id %>
       <%= render @survey.questions %>
 
-      <%= submit_tag 'Submit Survey', class: "btn btn-primary btn-md btn-block"  %>
+      <%= submit_tag 'Submit Survey', class: "btn btn-info btn-md btn-block"  %>
       <p><%= link_to "Cancel", surveys_path, class: "btn btn-secondary btn-md btn-block" %></p>
     <% end %>
   <% end %>
