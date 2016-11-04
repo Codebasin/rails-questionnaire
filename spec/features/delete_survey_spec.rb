@@ -3,9 +3,8 @@ require 'rails_helper'
 describe 'deleting a survey' do
 
   before(:each) do
-    @survey = {title: "Test", questions_attributes: {question: "question 1"}}
-    Survey.create(@survey)
-    visit survey_path(@survey)
+    survey = Survey.create({title: "Test", questions_attributes: [{title: "question"}]})
+    visit survey_path(survey)
     click_link "Delete"
   end
 

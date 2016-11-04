@@ -9,6 +9,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'sass-rails'
 gem 'rails_admin'
+gem 'cocoon'
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 gem 'bootstrap', '4.0.0.alpha4'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
@@ -21,10 +23,9 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
-gem 'cocoon'
-gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 group :development do
   gem 'web-console'
